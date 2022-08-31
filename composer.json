@@ -5,10 +5,10 @@
   "keywords": [
     "php",
     "crypt",
-    "age",
-    "toTree",
     "encrypt",
     "decrypt",
+    "encryptString",
+    "decryptString",
     "hyperf"
   ],
   "description": "",

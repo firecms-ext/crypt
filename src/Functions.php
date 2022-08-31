@@ -15,7 +15,7 @@ if (! function_exists('encrypt')) {
     /**
      * 加密.
      */
-    function encrypt(mixed $value, bool $serialize = true)
+    function encrypt(mixed $value, bool $serialize = true): string
     {
         return make(EncrypterServiceInterface::class)
             ->encrypt($value, $serialize);
@@ -26,7 +26,7 @@ if (! function_exists('decrypt')) {
     /**
      * 解密.
      */
-    function decrypt(string $payload, bool $unserialize = true)
+    function decrypt(string $payload, bool $unserialize = true): mixed
     {
         return make(EncrypterServiceInterface::class)
             ->decrypt($payload, $unserialize);
