@@ -14,7 +14,7 @@ namespace FirecmsExt\Crypt\Commands;
 use Exception;
 use FirecmsExt\Crypt\Services\EncrypterService;
 use Hyperf\Contract\ConfigInterface;
-use Hyperf\Crypt\Str;
+use Hyperf\Utils\Str;
 use Symfony\Component\Console\Input\InputOption;
 
 class GenAppKeyCommand extends AbstractGenCommand
