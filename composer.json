@@ -11,7 +11,7 @@
     "decryptString",
     "hyperf"
   ],
-  "description": "",
+  "description": "hyperf 扩展工具，字符串加密和机密",
   "autoload": {
     "psr-4": {
       "FirecmsExt\\Crypt\\": "src/"
