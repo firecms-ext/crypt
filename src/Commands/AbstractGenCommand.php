@@ -13,6 +13,7 @@ namespace FirecmsExt\Crypt\Commands;
 
 use Hyperf\Command\Command as HyperfCommand;
 use Hyperf\Contract\ConfigInterface;
+use Symfony\Component\Console\Input\InputOption;
 
 abstract class AbstractGenCommand extends HyperfCommand
 {
@@ -32,6 +33,9 @@ abstract class AbstractGenCommand extends HyperfCommand
         parent::configure();
 
         $this->setDescription($this->description);
+        $this->addOption('show', 's', InputOption::VALUE_NONE, 'Display the key instead of modifying files');
+        $this->addOption('always-no', null, InputOption::VALUE_NONE, 'Skip generating key if it already exists');
+        $this->addOption('force', 'f', InputOption::VALUE_NONE, 'Skip confirmation when overwriting an existing key');
     }
 
     /**

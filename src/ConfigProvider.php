@@ -33,6 +33,14 @@ class ConfigProvider
                     ],
                 ],
             ],
+            'publish' => [
+                [
+                    'id' => 'config',
+                    'description' => 'The config for crypt.',
+                    'source' => __DIR__ . '/../publish/crypt.php',
+                    'destination' => BASE_PATH . '/config/autoload/crypt.php',
+                ],
+            ],
         ];
     }
 }

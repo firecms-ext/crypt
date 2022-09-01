@@ -1,8 +1,12 @@
 # firecms-ext/crypt
 
-```
+```shell
 # 添加依赖
 composer require firecms-ext/crypt
+
+# 发布配置
+php bin/hyperf.php vendor:publish firecms-ext/crypt
+
 # 生成密钥
 php bin/hyperf.php gen:app-key
 ```

@@ -50,8 +50,8 @@ class EncrypterService implements EncrypterServiceInterface
      */
     public function __construct(ConfigInterface $config)
     {
-        $key = $this->parseKey(env('APP_KEY', $config->get('app_key', '')));
-        $cipher = env('APP_CIPHER', $config->get('app_cipher', 'AES-256-CBC'));
+        $key = $this->parseKey($config->get('crypt.key', env('APP_KEY')));
+        $cipher = $config->get('crypt.cipher', env('APP_CIPHER', 'AES-256-CBC'));
 
         if (! static::supported($key, $cipher)) {
             $ciphers = implode(', ', array_keys(self::$supportedCiphers));

@@ -13,9 +13,7 @@ namespace FirecmsExt\Crypt\Commands;
 
 use Exception;
 use FirecmsExt\Crypt\Services\EncrypterService;
-use Hyperf\Contract\ConfigInterface;
 use Hyperf\Utils\Str;
-use Symfony\Component\Console\Input\InputOption;
 
 class GenAppKeyCommand extends AbstractGenCommand
 {
@@ -23,22 +21,14 @@ class GenAppKeyCommand extends AbstractGenCommand
 
     protected string $description = 'Set the app key used to encrypter';
 
-    public function __construct(ConfigInterface $config)
-    {
-        parent::__construct($config);
-
-        $this->addOption('show', 's', InputOption::VALUE_NONE, 'Display the key instead of modifying files');
-        $this->addOption('always-no', null, InputOption::VALUE_NONE, 'Skip generating key if it already exists');
-        $this->addOption('force', 'f', InputOption::VALUE_NONE, 'Skip confirmation when overwriting an existing key');
-    }
-
     /**
      * @throws Exception
      */
     public function handle(): void
     {
         $path = $this->envFilePath();
-        if (! $cipher = env('APP_CIPHER', $this->config->get('app_cipher'))) {
+
+        if (! $cipher = $this->config->get('crypt.cipher', env('APP_CIPHER', 'AES-256-CBC'))) {
             $cipher = 'AES-256-CBC';
             if (Str::contains(file_get_contents($path), 'APP_CIPHER') === false) {
                 file_put_contents($path, "\n\nAPP_CIPHER={$cipher}\n", FILE_APPEND);
