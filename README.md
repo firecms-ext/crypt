@@ -15,14 +15,14 @@ php bin/hyperf.php gen:app-key
 
 ```php
 # 加密
-encrypt(mixed $value, bool $serialize = true): string
+function encrypt(mixed $value, bool $serialize = true): string
 
 # 解密
-decrypt(string $payload, bool $unserialize = true): mixed
+function decrypt(string $payload, bool $unserialize = true): mixed
 
 # 加密字符串
-encryptString(mixed $value): string
+function encryptString(mixed $value): string
 
 # 解密字符串
-decryptString(string $payload): string
+function decryptString(string $payload): string
 ```
